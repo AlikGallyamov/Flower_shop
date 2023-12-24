@@ -1,6 +1,6 @@
 import pytest
 
-from flower_shop_test.models.catalog import catalog
+from flower_shop_test.data.data import catalog
 from flower_shop_test.pages.base_page import BasePage
 
 

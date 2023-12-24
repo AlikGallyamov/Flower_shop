@@ -1,7 +1,6 @@
 import pytest
 
-from flower_shop_test.data.data import card
-from flower_shop_test.models.authorization import login_window
+from flower_shop_test.data.data import card, login_window
 from flower_shop_test.pages.base_page import BasePage
 
 
