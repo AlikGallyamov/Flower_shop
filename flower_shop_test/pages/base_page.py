@@ -1,8 +1,10 @@
 import pytest
 from selene import browser, be, have
 
+from flower_shop_test.data.data import card
 
-class BasePage:
+
+class BasePage():
     def __init__(self):
         self.price = browser.element('[class*="current"]')
 
@@ -14,11 +16,10 @@ class BasePage:
         browser.element('[class*="Rubric_title"]').should(have.text('Хит продаж'))
         browser.element('[href*="9-roz-lemon-ajs"] [class*="cartButton"]').click()
         browser.all('[class*="ProductsList_list"]>li').should(have.size(1))
-        self.price.should(have.exact_text(card.price))
+        self.price.should(have.text('{0:,}'.format(card.price).replace(',', ' ')))
         browser.element('[class*="ProductsListItem_top"]').should(have.exact_text(card.card_name))
 
-    def delete_product(self, card):
-        self.add_product(card)
+    def delete_product(self):
         browser.element('[data-testid*=delete-product]').click()
         browser.element('[class*=empty__title]').should(have.text('В корзине пусто'))
 
@@ -28,4 +29,4 @@ class BasePage:
         browser.element('[class*="SearchBar_input"]').press_enter()
         browser.all('[class*="Products"]>article').should(have.size(1))
         browser.element('[class*="ProductCard_name"]').should(have.exact_text(card.card_name))
-        self.price.should(have.exact_text(card.price))
+        self.price.should(have.text('{0:,}'.format(card.price).replace(',', ' ')))
