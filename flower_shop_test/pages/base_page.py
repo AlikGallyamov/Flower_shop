@@ -29,9 +29,6 @@ class BasePage:
         browser.element('[class*="ProductCard_name"]').should(have.exact_text(card.card_name))
         self.price.should(have.text('{0:,}'.format(card.price).replace(',', ' ')))
 
-    def buy_product(self, card):
-        browser.element()
-
     def open_login_window(self, login_window):
         browser.element('[class*="HeaderMid"] [data-testid*="open-login"]').click()
         browser.element('[class*="login-modal_title"]').should(have.text(login_window.title))
