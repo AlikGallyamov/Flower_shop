@@ -1,10 +1,8 @@
 import pytest
 from selene import browser, be, have
 
-from flower_shop_test.data.data import card
 
-
-class BasePage():
+class BasePage:
     def __init__(self):
         self.price = browser.element('[class*="current"]')
 
@@ -30,3 +28,23 @@ class BasePage():
         browser.all('[class*="Products"]>article').should(have.size(1))
         browser.element('[class*="ProductCard_name"]').should(have.exact_text(card.card_name))
         self.price.should(have.text('{0:,}'.format(card.price).replace(',', ' ')))
+
+    def buy_product(self, card):
+        browser.element()
+
+    def open_login_window(self, login_window):
+        browser.element('[class*="HeaderMid"] [data-testid*="open-login"]').click()
+        browser.element('[class*="login-modal_title"]').should(have.text(login_window.title))
+        browser.element('[class*="login-modal"] [id="phone"]').should(be.blank)
+
+    def buy_without_authorization(self, login_window):
+        browser.element('[class*="button_text"]').click()
+        browser.element('[class*="login-modal_title"]').should(have.text(login_window.title))
+        browser.element('[class*="login-modal"] [id="phone"]').should(be.blank)
+
+    def open_catalog(self, catalog):
+        browser.element('[class*="desktop_nav"] [class*="Catalogue_burger_menu"]').click()
+        browser.element('[class*="Navigation_heading"]').should(have.text('Каталог'))
+        browser.all('[class*="firstLevelMenu"]>li').should(
+            have.texts(catalog.category, catalog.collection, catalog.by_flower, catalog.by_price,
+                       catalog.by_color, catalog.discount_bouqets, catalog.by_photo, catalog.all_catalog))
