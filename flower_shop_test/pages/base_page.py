@@ -14,7 +14,7 @@ class BasePage:
 
     def add_product(self, card):
         with allure.step("Кликаем 'Показать все'"):
-            browser.element('[href*="na-1-sentyabrya"]').click()
+            browser.element("//*[span[text()='Показать все']]").click()
         with allure.step(f"Кликаем 'заказать' у товара {card.card_name}"):
             browser.element('[href*="9-roz-lemon-ajs"] [class*="cartButton"]').click()
         with allure.step("Проверяем количество товаров в корзине"):
