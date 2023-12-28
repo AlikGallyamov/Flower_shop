@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from flower_shop_test.controls import attach
 
 
+
 @pytest.fixture()
 def browser_managment():
     options = Options()
@@ -37,3 +38,4 @@ def browser_managment():
     attach.add_logs(browser)
     attach.add_video(browser)
     browser.quit()
+

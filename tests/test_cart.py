@@ -7,6 +7,7 @@ from flower_shop_test.pages.base_page import BasePage
 @pytest.fixture()
 def pre_add_product():
     main_page = BasePage()
+    main_page.open_url()
     main_page.add_product(card)
 
 
@@ -18,7 +19,6 @@ def test_add_product(browser_managment):
 
 def test_delete_product(browser_managment, pre_add_product):
     main_page = BasePage()
-    main_page.open_url()
     main_page.delete_product()
 
 
