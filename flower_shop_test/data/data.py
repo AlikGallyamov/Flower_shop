@@ -8,7 +8,7 @@ class Card:
     # old_price: int
     # discount_price: int
 
-card = Card(card_name='51 роза Ла Бель', price=2990)
+card = Card(card_name='51 роза Ла Бель', price=4990)
 
 
 @dataclasses.dataclass
