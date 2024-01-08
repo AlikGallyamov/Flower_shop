@@ -8,7 +8,7 @@ class Card:
     # old_price: int
     # discount_price: int
 
-card = Card(card_name='9 роз Лемон Айс', price=2990)
+card = Card(card_name='51 роза Ла Бель', price=2990)
 
 
 @dataclasses.dataclass
@@ -32,6 +32,6 @@ class Catalog:
 
 
 catalog = Catalog(category='Категории', collection='Подборки букетов', by_flower='По цветку', by_price='По цене',
-                  by_color='По цвету', discount_bouqets='Акционные букеты', by_photo='Букет по фото',
+                  by_color='По цвету', discount_bouqets='Букет по акции', by_photo='Букет по фото',
                   all_catalog='Весь каталог')
 

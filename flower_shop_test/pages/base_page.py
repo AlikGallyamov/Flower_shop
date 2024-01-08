@@ -16,7 +16,7 @@ class BasePage:
         with allure.step("Кликаем 'Показать все'"):
             browser.element("//*[span[text()='Показать все']]").click()
         with allure.step(f"Кликаем 'заказать' у товара {card.card_name}"):
-            browser.element('[href*="9-roz-lemon-ajs"] [class*="cartButton"]').click()
+            browser.element('[href*="51-roza-la-bel"] [class*="cartButton"]').click()
         with allure.step("Проверяем количество товаров в корзине"):
             browser.all('[class*="ProductsList_list"]>li').should(have.size(1))
         with allure.step(f"Проверяем цену товара в корзине"):
