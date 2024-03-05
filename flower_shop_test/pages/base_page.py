@@ -37,8 +37,8 @@ class BasePage:
             browser.element('[class*="Dropdown_item__name"]>span').should(have.attribute('aria-label', card.card_name))
         with allure.step("Нажимаем поиск"):
             browser.element('[class*="SearchBar_input"]').press_enter()
-        with allure.step("Найден 1 товар"):
-            browser.all('[class*="Products"]>article').should(have.size(1))
+        with allure.step("Найдены товары"):
+            browser.all('[class*="Products"]>article').should(have.size_greater_than(1))
         with allure.step("Название товара соответствует запросу"):
             browser.element('[class*="ProductCard_name"]').should(have.exact_text(card.card_name))
         with allure.step(f"Цена товара равна {card.price}"):
@@ -74,7 +74,7 @@ class BasePage:
         with allure.step("Открывем 'Категории'"):
             browser.element('[alt="Категории"]').hover()
         with allure.step("Проверяем количество категорий"):
-            browser.all('[class*="Submenu_sections"]>li').should(have.size(10))
+            browser.all('[class*="Submenu_list"]>li').should(have.size(10))
         with allure.step("Кликаем 'Цветы'"):
             browser.element('[href*="catalog/cvety"]').click()
         with allure.step("Проверяем, что перешли в каталог"):
