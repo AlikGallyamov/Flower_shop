@@ -81,5 +81,5 @@ class BasePage:
             browser.element('[class*="Catalog_heading"]').should(have.text('Каталог'))
         with allure.step("Проверяем, что выбран 1 фильтр"):
             browser.all('[class*="Catalog_selected"]>li').should(have.size(1))
-        with allure.step("Отображается товар '25 оранжево-желтых тюльпанов М24'"):
-            browser.element('[href*="27-oranzhevo-zheltyh-tyulpanov"] [class*="Card_name"]').should(have.exact_text('25 оранжево-желтых тюльпанов М24'))
+        with allure.step("Отображается товар 'Белые розы 75 роз 70 см Эквадор'"):
+            browser.element('[href="/product/belye-rozy"] [class*="Card_name"]').should(have.exact_text('Белые розы 75 роз 70 см Эквадор'))
